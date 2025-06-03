@@ -1,5 +1,8 @@
 plugins {
-    alias(libs.plugins.android.library)
+
+    id 'com.android.library' // <-- Đổi thành 'com.android.library'
+    id 'maven-publish'      //
+
     alias(libs.plugins.kotlin.android)
 }
 
@@ -10,7 +13,7 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.example.nfcreaderlib"
+
         minSdk 26
         targetSdk 35
         versionCode 1
@@ -31,6 +34,21 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+}
+
+// Khối publishing phải nằm ở đây, trong file build.gradle của module thư viện
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.hoangduong536'
+                artifactId = 'nfc-reader-lib'
+                version = '1.0.0' // Hoặc phiên bản bạn muốn release
+
+                from components.release
+            }
+        }
     }
 }
 
