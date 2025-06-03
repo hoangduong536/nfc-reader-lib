@@ -1,4 +1,4 @@
-# NFC Reader Lib
+# NFC Reader Lib: check LIB https://jitpack.io/#hoangduong536/nfc-reader-lib
 
 A simple Android NFC reader library designed for easy integration into your applications. This library handles the basic NFC tag reading process and provides callbacks for success and failure.
 
